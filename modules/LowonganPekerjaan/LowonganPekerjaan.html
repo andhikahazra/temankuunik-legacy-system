@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<style>
+    th {
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+
+    }
+    
+    td {
+        padding: 1px;
+    }
+    
+    .head {
+        background-color: rgba(143, 175, 68, 1);
+    }
+    
+    .fix {
+        position: fixed;
+    }
+    
+    .bg-grey {
+        background-color: rgba(202, 218, 235, 1);
+    }
+    
+    .nopadding {
+        padding: 0 !important;
+        /* margin: 2px !important; */
+        margin-right: 2px !important;
+    }
+</style>
+<div class="{{module_id_class}}">
+    <div class="box box-primary">
+        <div class="box-primary box">
+            <div class="box box-primary pad">
+                <div class="table table-modules">
+                    <!-- Widget ID (each widget will need unique ID)-->
+                    <div class="jarviswidget jarviswidget2 jarviswidget-color-blueDark" id="wid-id-1" data-widget-editbutton="false">
+
+                        <header class="">
+                            <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                            <h2>Informasi Lowongan Pekerjaan</h2>
+                        </header>
+
+                        <!-- widget div-->
+                        <div>
+
+                            <!-- widget edit box -->
+                            <div class="jarviswidget-editbox">
+                                <!-- This area used as dropdown edit box -->
+
+                            </div>
+                            <!-- end widget edit box -->
+
+                            <!-- widget content -->
+                            <div class="widget-body">
+                                <div class="box">
+                                    <!--
+                                    <form class="" id="formCari">
+                                        <div class="col-md-6 pad" style="margin-bottom:5px">
+                                            <select name="id_pilar" class="cbPilar" style="width: 100%">
+
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6 pad" style="margin-bottom:5px">
+                                            <select name="kode_tujuan" class="cbTujuan" style="width: 100%" >
+
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6" style="margin-bottom:5px">
+                                            <select name="kode_target" class="cbTarget" style="width: 100%">
+
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6" style="margin-bottom:5px">
+                                            &lt;!&ndash;<select name="kode_indikator" class="form-control cbIndikator">
+
+                                            </select>&ndash;&gt;
+                                            <input type="text" name="kode_indikator" class="form-control cbIndikator" placeholder="Cari indikator">
+                                        </div>
+                                        <div class="col-md-1" style="margin-bottom:5px">
+                                            <button class="btn btn-primary btTampilkan">
+                                                <i class="fa fa-search"></i><span>Tampilkan</span>
+                                            </button>
+                                        </div>
+                                    </form>-->
+                                    <!--<div class="col-md-1" style="margin-bottom:5px">
+                                        <button class="btn btn-primary btTampilkan">
+                                            <i class="fa fa-search"></i><span>Tampilkan</span>
+                                        </button>
+                                    </div>-->
+                                </div>
+                                <table id="datatable_fixed_column" class="table table-striped table-bordered" width="100%">
+
+                                    <thead class="kepala">
+                                        <tr>
+                                            <th data-class="expand">No</th>
+                                            <th data-class="expand">Aksi</th>
+                                            <th data-class="expand">Nomor Pendaftaran</th>
+                                            <th data-class="expand">Tanggal Daftar</th>
+                                            <th data-class="expand">Batas Waktu (hari)</th>
+                                            <th data-class="expand">Lapangan Usaha</th>
+                                            <th data-class="expand">Nama Pekerjaan</th>
+                                            <th data-class="expand">Jumlah Lowongan</th>
+                                            <th data-class="expand">Mekanisme Penempatan</th>
+                                            <th data-class="expand">Nama Provinsi/Negara</th>
+                                            <th data-class="expand">Jurusan</th>
+                                            <th data-class="expand">Sistem Upah</th>
+                                            <th data-class="expand">Gaji Perbulan</th>
+                                            <th data-class="expand">Status Hubungan Kerja</th>
+                                            <th data-class="expand">Jumlah Jam Kerja</th>
+                                            <th data-class="expand">Jaminan Sosial</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="bodiku">
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                            <!-- end widget content -->
+
+                        </div>
+                        <!-- end widget div -->
+
+                    </div>
+                    <!-- end widget -->
+                </div>
+            </div>
+
+        </div>
+        <div class="overlay">
+            <i class="fa fa-refresh fa-spin"></i>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Tambah Data Lowongan Kerja</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <section>
+                        <div class="wizard">
+                            <div class="wizard-inner">
+                                <div class="connecting-line"></div>
+                                <ul class="nav nav-tabs" role="tablist">
+
+                               <!--      <li role="presentation" class="active">
+                                        <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Identitas Pemberi Kerja">
+                                            <span class="round-tab">
+                                                <i class="glyphicon glyphicon-user"></i>
+                                            </span>
+                                        </a>
+                                    </li> -->
+
+                                    <li role="presentation" class="active" id="first">
+                                        <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Informasi Lowongan Jabatan">
+                                            <span class="round-tab">
+                                                <i class="glyphicon glyphicon-list-alt"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li role="presentation" class="disabled">
+                                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Persyaratan Jabatan">
+                                            <span class="round-tab">
+                                                <i class="glyphicon glyphicon-tasks"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li role="presentation" class="disabled">
+                                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Sistem Pengupahan">
+                                            <span class="round-tab">
+                                                <i class="glyphicon glyphicon-envelope"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+
+                                     <li role="presentation" class="disabled">
+                                        <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Uraian Pekerjaan dan Tugas">
+                                            <span class="round-tab">
+                                                <i class="glyphicon glyphicon-credit-card"></i>
+                                            </span>
+                                        </a>
+                                    </li>
+
+                                  <!--   <li role="presentation" class="disabled">
+                                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                                            <span class="round-tab">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                </span>
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </div>
+
+                            <form role="form" class="form-horizontal" id="form_input">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" role="tabpanel" id="step1">
+                                        <h3>Informasi Lowongan Jabatan/Pekerjaan</h3>
+                                        <div class="form-group nopadding d-none" style="display: none;">
+                                            <label class="col-sm-2 text-right"><strong>id_lowongan_pekerjaan</strong></label>
+                                            <div class="col-md-10">
+                                                <input type="text" disabled class="form-control" name="id_lowongan_pekerjaan">
+                                            </div>
+                                        </div>
+                                      <!--   <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Nomor Pendaftaran</strong></label>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="nomor_pendaftaran" readonly>
+                                            </div>
+                                        </div> -->
+                                       <!--  <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Tanggal Pendaftaran</strong></label>
+                                            <div class="col-md-3">
+                                                <input type="date" class="form-control" name="tgl_pendaftaran">
+                                            </div>
+                                        </div> -->
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Batas Waktu Pendaftaran</strong></label>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name="batas_waktu" placeholder="Hari">  
+                                            </div>
+                                            <div class="col-md-1" style="font-size: 15px;padding-top: 5px">Hari</div>
+                                        </div>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Nama Perusahaan</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_identitas_pemberikerja" class="form-control cbIdentitaspemberikerja" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Jabatan Kerja</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_jabatan_kerja" class="form-control cbJabatankerja" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Nama Jabatan</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_nama_jabatan" class="form-control cbNamajabatan" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Jumlah Lowongan</strong></label>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name="jml_lowongan">
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="col-md-7">
+                                                    <select name="id_reff_jk" class="form-control cbJeniskelamin" style="width: 100%">
+                                                        <!-- <option value="0" disabled selected>Silahkan Pilih</option> -->
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Mekanisme Penempatan</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_mekanisme_penempatan" class="form-control cbMekanismePenempatan" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Negara/Provinsi</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_provinsi" class="form-control cbProvinsi" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Kota/Kabupaten</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_kabupaten" class="form-control cbKabupaten" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <br>
+                                        <ul class="list-inline pull-right" style="padding-right:10px; ">
+                                       <!--      <li><button type="button" class="btn btn-default prev-step">Sebelumnya</button></li> -->
+                                            <li><button type="button" class="btn btn-primary next-step">Lanjutkan </button></li>
+                                        </ul>
+                                    </div>
+                                    <div class="tab-pane" role="tabpanel" id="step2">
+                                        <h3>Persyaratan Jabatan</h3>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Pendidikan Formal</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_tingkat_pendidikan" class="form-control cbPendkformal" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Pendidikan Tertinggi</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_jurusan_pendidikan" class="form-control cbPendktinggi" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Jurusan</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_nama_jurusan" class="form-control cbJurusan" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Keterampilan/Keahlian</strong></label>
+                                            <div class="col-md-7">
+                                                   <textarea class="form-control" name="keterampilan" id="editor1" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Pengalaman</strong></label>
+                                            <div class="col-md-7">
+                                                  <textarea class="form-control" name="pengalaman" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Syarat Khusus</strong></label>
+                                            <div class="col-md-7">
+                                                   <textarea class="form-control" name="syarat_khusus" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <br>
+                                        <ul class="list-inline pull-right" style="padding-right:10px; ">
+                                            <li><button type="button" class="btn btn-default prev-step">Sebelumnya</button></li>
+                                            <li><button type="button" class="btn btn-primary next-step">Lanjutkan </button></li>
+                                        </ul>
+                                    </div>
+
+                                     <div class="tab-pane" role="tabpanel" id="step3">
+                                        <h3>Sistem Pengupahan</h3>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Sistem Pengupahan</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_sistem_pengupahan" class="form-control cbPengupahan" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Gaji/Upah Sebulan</strong></label>
+                                            <div class="col-md-2">
+                                                <input type="text" class="form-control" name="gaji_sebulan" id="gaji_sebulan">
+                                            </div>
+                                        </div>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Status Hubungan Kerja</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="id_reff_status_hubungan_kerja" class="form-control cbHubkerja" style="width: 100%">
+                                                    <option value="0" disabled selected>Silahkan Pilih</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Jumlah Jam Kerja Dalam Seminggu</strong></label>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name="jml_jam_kerja">
+                                            </div>
+                                            <div class="col-md-1" style="font-size: 15px;padding-top: 5px">Jam</div>
+                                        </div>
+                                        <div class="form-group nopadding">
+                                            <label class="col-sm-3  text-right" style="margin-top: 6px;"><strong>Jaminan Sosial Lainnya</strong></label>
+                                            <div class="col-md-7">
+                                                <select name="jaminan_sosial" id="cbJaminansosial" multiple="multiple" class="form-control cbJaminansosial"  style="width: 100%">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <br>
+                                        <ul class="list-inline pull-right" style="padding-right:10px; ">
+                                            <li><button type="button" class="btn btn-default prev-step">Sebelumnya</button></li>
+                                            <li><button type="button" class="btn btn-primary next-step">Lanjutkan </button></li>
+                                        </ul>
+                                       
+                                    </div>
+
+                                    <div class="tab-pane" role="tabpanel" id="step4">
+                                        <h3>Uraian Pekerjaan dan Tugas</h3>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Uraian Singkat Pekerjaan</strong></label>
+                                            <div class="col-md-7">
+                                                   <textarea class="form-control" name="uraian_pekerjaan" rows="3"></textarea>
+                                            </div>
+                                        </div>
+                                         <div class="form-group nopadding">
+                                            <label class="col-sm-3 text-right"><strong>Uraian Tugas</strong></label>
+                                            <div class="col-md-7">
+                                                   <textarea class="form-control" name="uraian_tugas" rows="3"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <ul class="list-inline pull-right" style="padding-right:10px; ">
+                                            <li><button type="button" class="btn btn-default prev-step">Sebelumnya</button></li>
+                                        
+                                            <li><button type="submit" class="btSimpan btn btn-primary ">Simpan </button></li>
+                                        </ul>
+                                    </div>
+
+                                 <!--    <div class="tab-pane" role="tabpanel" id="complete">
+                                        <h3>Complete</h3>
+                                        <p>You have successfully completed all steps.</p>
+                                    </div> -->
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- <form class="form-horizontal" id="form_input">
+                <input type="hidden" name="id">
+                <div class="modal-body">
+
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btSimpan btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+            </div> -->
+        </div>
+
+    </div>
+</div>
+
+<style>
+    .wizard {
+        margin: 20px auto;
+        background: #fff;
+    }
+    
+    .wizard .nav-tabs {
+        position: relative;
+        /* margin: 40px auto; */
+        margin-bottom: 0;
+        border-bottom-color: #e0e0e0;
+    }
+    
+    .wizard>div.wizard-inner {
+        position: relative;
+    }
+    
+    .connecting-line {
+        height: 2px;
+        background: #e0e0e0;
+        position: absolute;
+        width: 80%;
+        margin: 0 auto;
+        left: 0;
+        right: 0;
+        top: 50%;
+        z-index: 1;
+    }
+    
+    .wizard .nav-tabs>li.active>a,
+    .wizard .nav-tabs>li.active>a:hover,
+    .wizard .nav-tabs>li.active>a:focus {
+        color: #555555;
+        cursor: default;
+        border: 0;
+        border-bottom-color: transparent;
+    }
+    
+    span.round-tab {
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        display: inline-block;
+        border-radius: 100px;
+        background: #fff;
+        border: 2px solid #e0e0e0;
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        text-align: center;
+        font-size: 25px;
+    }
+    
+    span.round-tab i {
+        color: #555555;
+    }
+    
+    .wizard li.active span.round-tab {
+        background: #fff;
+        border: 2px solid #5bc0de;
+    }
+    
+    .wizard li.active span.round-tab i {
+        color: #5bc0de;
+    }
+    
+    span.round-tab:hover {
+        color: #333;
+        border: 2px solid #333;
+    }
+    
+    .wizard .nav-tabs>li {
+        width: 25%;
+    }
+    
+    .wizard li:after {
+        content: " ";
+        position: absolute;
+        left: 46%;
+        opacity: 0;
+        margin: 0 auto;
+        bottom: 0px;
+        border: 5px solid transparent;
+        border-bottom-color: #5bc0de;
+        transition: 0.1s ease-in-out;
+    }
+    
+    .wizard li.active:after {
+        content: " ";
+        position: absolute;
+        left: 46%;
+        opacity: 1;
+        margin: 0 auto;
+        bottom: 0px;
+        border: 10px solid transparent;
+        border-bottom-color: #5bc0de;
+    }
+    
+    .wizard .nav-tabs>li a {
+        width: 70px;
+        height: 70px;
+        margin: 20px auto;
+        border-radius: 100%;
+        padding: 0;
+    }
+    
+    .wizard .nav-tabs>li a:hover {
+        background: transparent;
+    }
+    
+    .wizard .tab-pane {
+        position: relative;
+        padding-top: 30px;
+    }
+    
+    .wizard h3 {
+        margin-top: 0;
+    }
+    
+    @media( max-width: 585px) {
+        .wizard {
+            width: 90%;
+            height: auto !important;
+        }
+        span.round-tab {
+            font-size: 16px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .wizard .nav-tabs>li a {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .wizard li.active:after {
+            content: " ";
+            position: absolute;
+            left: 35%;
+        }
+    }
+    /* input {
+        position: relative;
+        width: 150px;
+        height: 20px;
+        color: white;
+    }
+    
+    input:before {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        content: attr(data-date);
+        display: inline-block;
+        color: black;
+    }
+    
+    input::-webkit-datetime-edit,
+    input::-webkit-inner-spin-button,
+    input::-webkit-clear-button {
+        display: none;
+    }
+    
+    input::-webkit-calendar-picker-indicator {
+        position: absolute;
+        top: 3px;
+        right: 0;
+        color: black;
+        opacity: 1;
+    } */
+</style>

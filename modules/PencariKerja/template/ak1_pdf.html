@@ -1,0 +1,315 @@
+<html>
+<head><title>LAPORAN AK I</title>
+<style type="text/css">
+    table {
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        border-collapse: collapse;
+    }
+
+    caption {
+        text-align: left;
+        color: blue;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 5px;
+    }
+
+    thead {
+    }
+
+    .col {
+        width: 15%;
+    }
+
+    .col1 {
+        width: 20%;
+    }
+
+    .col2 {
+        width: 25%;
+    }
+
+    .col3 {
+        width: 30%;
+    }
+
+    thead th {
+        background: SteelBlue;
+        color: white;
+        text-align: center;
+    }
+
+    thead td {
+        background-color: #FFEB3B;
+        text-align: center;
+    }
+
+    th,
+    td {
+        /*border: 1px solid #CCC;*/
+        padding: 1px 2px;
+        font-family: monospace;
+        font-size: 9px;
+    }
+
+ /*   tbody tr:nth-child(even) {
+        background: WhiteSmoke;
+    }*/
+
+    tbody tr td:nth-child(3),
+    tbody tr td:nth-child(4) {
+        font-family: monospace;
+    }
+
+    tfoot {
+        background-color: #00a65a;
+        color: white;
+        text-align: left;
+    }
+
+    tfoot tr th:last-child {
+        font-family: monospace;
+    }
+
+    td .batas-bawah-row-skpd {
+        border-bottom: 3px solid #99ADB5;
+    }
+
+    /* Warna Raport RFK */
+
+    .raport-biru {
+        background-color: #85C2FF;
+    }
+
+    .raport-merah {
+        background-color: #FA795F;
+    }
+
+    .raport-kuning {
+        background-color: #F0EDAD;
+    }
+
+    .raport-hijau {
+        background-color: #89F0A4;
+    }
+
+    
+section {
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 100%;
+  float: left;
+   max-height: 150px;
+}
+
+div {
+  /*margin: 5px;*/
+  width: 500px;
+  max-height: 150px;
+}
+
+.kiri {
+  float: left;
+  background: pink;
+   max-height: 150px;
+   overflow: auto;
+   width: 100%;
+}
+
+.kanan {
+  float: right;
+  background: cyan;
+}
+
+.td1{
+  border-right: 1px solid black;
+}
+
+.td2{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.td3{
+  /*border-right: 1px solid black;*/
+  border-bottom: 1px solid black;
+}
+
+</style>
+</head>
+<body>
+
+<section>   {{#data_hasil}}
+  <div class="kiri">
+         <table style="width: 100%;" >
+            <tbody>
+                <tr>
+                    <td class="td3" style="width: 130px;padding-top: 5px;">PENDIDIKAN FORMAL</td>
+                     <td class="td2" style="width: 400px;"></td>
+                    <td class="td2" style="width: 50px;">TAHUN</td>
+                    <!-- <td class="td1"  style="width: 40px;">&nbsp;</td> -->
+                    <td rowspan="4" style="width: 100px;text-align: center;padding-top: 5px;">&nbsp;<img width="48" height="52" src="https://cdn.slemankab.go.id/filedisnaker/logo.gif" ></td>
+                    <td colspan="2" style="text-align: center;font-size: 13px;font-weight: bold;padding-top: 5px;">PEMERINTAH KABUPATEN SLEMAN</td>
+                    <td style="width: 80px;font-weight: bold;">KARTU AK/I</td>
+                </tr>
+                <tr>
+                    <td>PEND. TERAKHIR</td>
+                    <td class="td1">:{{#pendidikan}} {{tingkat_pendidikan}} {{jurusan_manual}}{{/pendidikan}} </td>
+                    <td class="td1">{{#pendidikan}} {{tahun_lulus}}{{/pendidikan}}</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td colspan="2" style="text-align: center;font-size: 15px;font-weight: bold;">DINAS TENAGA KERJA</td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td></td>
+                    <td class="td1"></td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td colspan="2" style="text-align: center;font-size: 8px;font-weight: bold; word-spacing: -5px;">&nbsp;<img width="130" height="23" src="https://cdn.slemankab.go.id/filedisnaker/disnaker.png" ></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="td1"></td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td colspan="2" style="text-align: center;font-size: 8px;font-weight: bold; word-spacing: -5px;">JL.Parasamya,Beran,Tridadi,Sleman, 55511 - Telp./Fax (0274) 868803 , 868429</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="td1">&nbsp;&nbsp;</td>
+                    <td class="td1">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td colspan="2"  style="text-align: center;font-size: 13px;font-weight: bold;">KARTU TANDA BUKTI PENDAFTARAN PENCARI KERJA</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td ></td>
+                    <td class="td1"></td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td style="padding-top: 6px;"  colspan="2">&nbsp;No. Pendaftaran Pencari Kerja</td>
+                    <td colspan="2">: {{no_pendaftaran}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="td1"></td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td colspan="2">&nbsp;No. Induk Kependudukan</td>
+                    <td colspan="2">: {{nik}}</td>
+                </tr>
+                <tr>
+                    <td class="td3"></td>
+                    <td class="td2"></td>
+                    <td class="td2">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td rowspan="6"><img style=" border: 1px solid ;margin: 10px 10px 10px 10px;;" width="80" height="100" src="{{data_foto}}" ></td>
+                    <td style="width: 80px;">Nama Lengkap</td>
+                    <td colspan="2">: {{nama_lengkap}}</td>
+                </tr>
+                <tr>
+                    <td >Keterampilan</td>
+                    <td class="td1">:</td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td>&nbsp;</td> -->
+                    <td style="width: 80px;">Tempat/Tgl.Lahir</td>
+                    <td colspan="2">: {{tempat_lahir}},{{tangal_lahir}}</td>
+                </tr>
+                <tr>
+                    <td class="td1" colspan="2">{{#pendidikan}}{{ketrampilan}}{{/pendidikan}}</td>
+                    <!-- <td class="td1"> </td> -->
+                    <td class="td1"></td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td>&nbsp;</td> -->
+                    <td style="width: 80px;">Jenis Kelamin</td>
+                    <td colspan="2">: {{jenis_kelamin_}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <!-- <td></td> -->
+                    <td class="td1" >&nbsp;</td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td>&nbsp;</td> -->
+                    <td style="width: 80px;">Status</td>
+                    <td colspan="2">: {{status_}}</td>
+                </tr>
+                <tr>
+                    <td class="td3"></td>
+                    <td class="td2">&nbsp;</td>
+                    <td class="td2">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td>&nbsp;</td> -->
+                    <td style="width: 80px;">Agama</td>
+                    <td colspan="2">: {{agama}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="td1"  style="text-align:center;font-size: 10px;padding-top: 5px;padding-left: 150px;" colspan="2"> Petugas Antar Kerja,</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td style="width: 80px;">Alamat</td>
+                    <td colspan="2"  style=" vertical-align: text-top;text-overflow: ellipsis; word-wrap: break-word;overflow: hidden; max-height: 3.6em;text-justify: inter-word;">: {{alamat}} Rt.{{rt}}/Rw.{{rw}} No.{{no}}, {{KELURAHAN}}, {{KECAMATAN}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="td1"  colspan="2"></td>
+                    <!-- <td>&nbsp;</td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td style="font-size: 10px;"></td>
+                    <td style="width: 80px;">No.Telp</td>
+                    <td colspan="2">: {{no_hp}}</td>
+                    <!-- <td colspan="2" >&nbsp;</td> -->
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="td1" style="text-align:center;font-size: 10px;padding-top: 5px;padding-left: 150px;" colspan="2"></td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td style="font-size: 10px;padding-top: 5px;">&nbsp;</td>
+                    <td style="width: 80px;">Berlaku s.d.</td>
+                    <td colspan="2">: {{duatahun}}</td>
+                      <!-- <td></td> -->
+                    <!-- <td colspan="2" >&nbsp;</td> -->
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="td1" colspan="2">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td style="font-size: 10px;">&nbsp;</td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td></td>
+
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="td1" colspan="2" style="font-size: 10px;text-align:center; padding-right: 20px;padding-left: 150px;"><hr style="width: 40%;"></td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td colspan="2" style="font-size: 10px;">&nbsp;</td>
+                    <!-- <td></td> -->
+                    <td>&nbsp;</td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>&nbsp;</td>
+                    <td class="td1" colspan="2" style="font-size: 10px;text-align:left; padding-right: 20px;padding-left: 230px;vertical-align:top;" >NIP.</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td colspan="2" style="font-size: 10px;">&nbsp;TTD Pencari Kerja</td>
+                    <td>&nbsp;</td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>  
+
+  </div>
+  {{/data_hasil}}
+</section>
+
+</body>
+</html>

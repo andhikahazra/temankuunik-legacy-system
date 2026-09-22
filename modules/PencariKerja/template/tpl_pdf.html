@@ -1,0 +1,277 @@
+<html>
+<head><title>LAPORAN AK II</title>
+<style type="text/css">
+    table {
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        border-collapse: collapse;
+    }
+
+    caption {
+        text-align: left;
+        color: blue;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 5px;
+    }
+
+    .col {
+        width: 15%;
+    }
+
+    .col1 {
+        width: 20%;
+    }
+
+    .col2 {
+        width: 25%;
+    }
+
+    .col3 {
+        width: 30%;
+    }
+
+    thead th {
+        background: SteelBlue;
+        color: white;
+        text-align: center;
+    }
+
+    thead td {
+        background-color: #FFEB3B;
+        text-align: center;
+    }
+
+    th,
+    td {
+        border: 1px solid #CCC;
+        padding: 2px 2px;
+        font-family: monospace;
+        font-size: 11px;
+        height: 30px;
+
+    }
+
+    /*tbody tr:nth-child(even) {
+        background: WhiteSmoke;
+    }*/
+
+    tbody tr td:nth-child(3),
+    tbody tr td:nth-child(4) {
+        font-family: monospace;
+    }
+
+    tfoot {
+        background-color: #00a65a;
+        color: white;
+        text-align: left;
+    }
+
+    tfoot tr th:last-child {
+        font-family: monospace;
+    }
+
+    td .batas-bawah-row-skpd {
+        border-bottom: 3px solid #99ADB5;
+    }
+
+    /* Warna Raport RFK */
+
+    .raport-biru {
+        background-color: #85C2FF;
+    }
+
+    .raport-merah {
+        background-color: #FA795F;
+    }
+
+    .raport-kuning {
+        background-color: #F0EDAD;
+    }
+
+    .raport-hijau {
+        background-color: #89F0A4;
+    }
+
+    .td1{
+        border: none;
+    }
+
+</style>
+</head>
+<body>
+  <div class="header box box-primary" style="padding-top:10px">
+        <center><h4 class="title" id="myModalLabel">DAFTAR ISIAN PENCARI KERJA</h4></center><br/><br/>
+    </div>
+
+       
+            <table style="width: 100%;">
+                <tbody>
+                    {{#result}}{{no_pendaftaran}}
+ 
+                    <tr>
+                        <!-- <td style="vertical-align: text-top;font-weight: bold;" colspan="4"></td> -->
+                        <!-- <td style="font-weight: bold;width: 40%"></td>
+                        <td></td>
+                        <td></td> -->
+                        <td style="text-align:right;font-weight: bold;" colspan="5"> FORMULIR : AK/II</td>
+                    </tr>
+
+                    <tr>
+                        <td style="font-weight: bold;">NO.</td>
+                        <!-- <td style="font-weight: bold;width: 40%"></td>
+                        <td></td>
+                        <td></td> -->
+                        <td style="font-weight: bold;" colspan="4"> DI ISI DENGAN HURUF CETAK</td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: text-top;font-weight: bold;" rowspan="2">1.</td>
+                        <td style="font-weight: bold;" colspan="4">PEMERINTAH KABUPATEN/KOTA</td>
+                    </tr>
+                    <tr>
+                        <td>DINAS SLEMAN </td>
+                        <td colspan="3">PROVINSI YOGYAKARTA</td>
+                    </tr>
+                  
+                    <tr>
+                        <td style="vertical-align: text-top;font-weight: bold;" rowspan="2">2.</td>
+                        <td style="font-weight: bold;width: 40%">NOMOR DAN TANGGAL PENDAFTARAN</td>
+                        <td colspan="2">{{no_pendaftaran}}</td>
+                        <td  style="width: 20%"> {{tanggal_daftar}}</td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold">NOMOR INDUK KEPENDUDUKAN</td>
+                        <td colspan="3">{{nik}}</td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: text-top;font-weight: bold;" rowspan="9">3.</td>
+                        <td style="font-weight: bold" colspan="4">KETERANGAN UMUM</td>
+                    </tr>
+                    <tr>
+                        <td>3.1 Nama Lengkap</td>
+                        <td colspan="3">{{nama_lengkap}}</td>
+                    </tr>
+                    <tr>
+                        <td>3.2 Tempat/Tgl Lahir</td>
+                        <td colspan="3">{{tempat_lahir}}, {{tangal_lahir}}</td>
+                    </tr>
+                    <tr>
+                        <td>3.3 Jenis Kelamin</td>
+                        <td colspan="3">{{jenis_kelamin_}}</td>
+                    </tr>
+                    <tr>
+                        <td>3.4 Alamat</td>
+                        <td colspan="3">{{alamat}} Rt. {{rt}} Rw. {{rw}} No. {{no}}, {{KELURAHAN}}, {{KECAMATAN}}</td>
+                    </tr>
+                    <tr>
+                        <td>&emsp; &nbsp; Tlp/Hp</td>
+                        <td colspan="3">{{no_hp}}</td>
+                    </tr>
+                    <tr>
+                        <td>&emsp; &nbsp; Email</td>
+                        <td colspan="3">{{email}}</td>
+                    </tr>
+                    <tr>
+                        <td>&emsp; &nbsp; Kode Pos</td>
+                        <td colspan="3">{{kode_pos}}</td>
+                    </tr>
+                    <tr>
+                        <td>3.5 Status</td>
+                        <td colspan="3">{{status_}}</td>
+                    </tr>
+
+                    <tr>
+                        <td style="vertical-align: text-top;font-weight: bold;" rowspan="4">4.</td>
+                        <td style="font-weight: bold" colspan="4">PENDIDIKAN FORMAL</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>4.1 Pendidikan Tertinggi</td>
+                        <td> {{#pendidikan}} {{tingkat_pendidikan}}{{/pendidikan}}</td>
+                        <td colspan="2">NEM/IPK: {{#pendidikan}}{{nem_ipk}}{{/pendidikan}}</td>  
+                    </tr>
+
+                    <tr>
+                        <td>4.2 Jurusan</td>
+                        <td colspan="3">{{#pendidikan}}{{nama_jurusan}}{{/pendidikan}}</td>
+                    </tr>
+                    <tr>
+                        <td>4.3 Keterampilan</td>
+                        <td colspan="3">{{#pendidikan}}{{ketrampilan}}{{/pendidikan}}</td>
+                    </tr>
+                 
+                    
+                    <tr>
+                        <td style="vertical-align: text-top;font-weight: bold;">5.</td>
+                        <td style="font-weight: bold;width: 40%">BAHASA ASING YANG DIKUASAI</td>
+                        <td colspan="3">{{#bahasa}}{{bahasa_asing}}{{koma}} {{/bahasa}}</td>
+                    </tr>
+                  
+                    <tr>
+                        <td style="vertical-align: text-top;font-weight: bold;" rowspan='{{jml_pengalaman}}'>6.</td>
+                        <td style="font-weight: bold" colspan="4">PENGALAMAN KERJA</td>
+                    </tr>
+                    <tr>
+                        <td>6.1 Jabatan </td>
+                        <td>6.2 Uraian Tugas</td>
+                        <td>6.3 Lama Kerja</td>
+                        <td>6.4 Pemberi/Pengguna</td>
+                    </tr>
+                    {{#pengalaman}}
+                    <tr>
+                        <td>{{jabatan}}</td>
+                        <td>{{uraian_tugas}}</td>
+                        <td>{{lama_kerja_tahun}} Tahun {{lama_kerja_bulan}} Bulan</td>
+                        <td>{{pemberi_pengguna}}</td>
+                    </tr>
+                    {{/pengalaman}}
+                    <tr>
+                        <td>* Catatan Pengantar Kerja yang berkaitan dengan faktor-faktor yang mempengaruhi pekerjaan</td>
+                        <td colspan="3" style="vertical-align:top">{{catatan_pengantar_kerja}}</td>
+                    </tr>
+                    <tr>
+                        <td style="vertical-align: text-top;font-weight: bold;" rowspan="3">7.</td>
+                        <td style="font-weight: bold;width: 40%">JABATAN YANG DIINGINKAN</td>
+                        <td colspan="3">{{nama_jabatan}}</td>
+                    </tr>
+                    <tr>
+                        <td>7.1 Lokasi</td>
+                        <td colspan="3">{{lokasi_}} {{dalam_negeri_}}</td>
+                    </tr>
+                    <tr>
+                        <td>7.2 Besar upah yang diinginkan</td>
+                        <td colspan="3">{{upah_pencaker}}</td>
+                    </tr>
+                    {{/result}}
+                </tbody>
+            </table>
+            <table style="width: 100%;border: none;margin-top: 20px;" >
+             <tbody>
+                <tr>
+                    <td class="td1" style="padding-left: 30px;" colspan="2">Tanda tangan pemberi kerja/Perusahaan</td>
+                    <td class="td1"></td>
+                    <td class="td1" style="text-align:center;padding-right: 30px;" colspan="2">Pengantar kerja/Petugas antar kerja</td>
+                </tr>
+                <tr>
+                    <td class="td1" colspan="2"></td>
+                    <td class="td1"></td>
+                    <td class="td1" style="text-align:right;" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="td1" colspan="2"></td>
+                    <td class="td1"></td>
+                    <td class="td1" style="text-align:right;" colspan="2"></td>
+                </tr>
+                <tr>
+                    <td class="td1" style="text-align:center;padding-right: 60px;vertical-align:bottom;"colspan="2"><hr style="width: 80%;"></td>
+                    <td class="td1"></td>
+                    <td class="td1" style="text-align:center;padding-right: 30px;vertical-align:bottom;" colspan="2"><hr style="width: 70%;"></td>
+                </tr>
+                <tr>
+                    <td class="td1" colspan="2"></td>
+                    <td class="td1"></td>
+                    <td class="td1" style="text-align:left;padding-left: 50px;vertical-align: top;" colspan="2">NIP</td>
+                </tr>
+             </tbody>
+            </table>
+</body>
+</html>

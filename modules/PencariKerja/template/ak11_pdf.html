@@ -1,0 +1,321 @@
+<html>
+<head><title>LAPORAN AK I</title>
+<style type="text/css">
+    table {
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        border-collapse: collapse;
+    }
+
+    caption {
+        text-align: left;
+        color: blue;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 5px;
+    }
+
+    thead {
+    }
+
+    .col {
+        width: 15%;
+    }
+
+    .col1 {
+        width: 20%;
+    }
+
+    .col2 {
+        width: 25%;
+    }
+
+    .col3 {
+        width: 30%;
+    }
+
+    thead th {
+        background: SteelBlue;
+        color: white;
+        text-align: center;
+    }
+
+    thead td {
+        background-color: #FFEB3B;
+        text-align: center;
+    }
+
+    th,
+    td {
+        /*border: 1px solid #CCC;*/
+        padding: 1px 2px;
+        font-family: monospace;
+        font-size: 12px;
+    }
+
+ /*   tbody tr:nth-child(even) {
+        background: WhiteSmoke;
+    }*/
+
+    tbody tr td:nth-child(3),
+    tbody tr td:nth-child(4) {
+        font-family: monospace;
+    }
+
+    tfoot {
+        background-color: #00a65a;
+        color: white;
+        text-align: left;
+    }
+
+    tfoot tr th:last-child {
+        font-family: monospace;
+    }
+
+    td .batas-bawah-row-skpd {
+        border-bottom: 3px solid #99ADB5;
+    }
+
+    /* Warna Raport RFK */
+
+    .raport-biru {
+        background-color: #85C2FF;
+    }
+
+    .raport-merah {
+        background-color: #FA795F;
+    }
+
+    .raport-kuning {
+        background-color: #F0EDAD;
+    }
+
+    .raport-hijau {
+        background-color: #89F0A4;
+    }
+
+    
+section {
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: 100%;
+  float: left;
+  max-height: 150px;
+}
+
+div {
+  /*margin: 5px;*/
+  width: 500px;
+  max-height: 150px;
+}
+
+.kiri {
+  float: left;
+  background: pink;
+   max-height: 150px;
+   overflow: auto;
+   width: 100%;
+}
+
+.kanan {
+  float: right;
+  background: cyan;
+}
+
+.td1{
+  border-right: 1px solid black;
+}
+
+.td2{
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.td3{
+  /*border-right: 1px solid black;*/
+  border-bottom: 1px solid black;
+}
+
+</style>
+</head>
+<body>
+<br/>
+<section>   {{#data_hasil}}
+  <div class="kiri">
+         <table style="width: 100%;" >
+            <tbody>
+                <tr>
+                    <td class="td2" style="width: 130px;padding-top: 5px;">LAPORAN</td>
+                     <td class="td2" style="width: 150px;">TGL - BULAN - TAHUN</td>
+                    <td class="td2" style="width: 200px;text-align:center;">Tanda Tangan Pengantar Kerja Petugas Pendaftar <br/>(Cantumkan NIP)</td>
+                    <!-- <td class="td1"  style="width: 40px;">&nbsp;</td> -->
+                    <td style="width: 100px;vertical-align: text-top; text-align: right;padding-top: 5px;">&nbsp;Ketentuan :</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="td2" rowspan="3">Pertama</td>
+                    <td class="td1"></td>
+                    <td class="td1">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                   
+                    <td class="td1"></td>
+                    <td class="td1">&nbsp;</td>
+                    <td style="text-align:right;">1.</td>
+                    <td colspan="2">Berlaku Nasional</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  
+                    <td class="td2"> &nbsp;</td>
+                    <td class="td2">&nbsp;</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="td2" rowspan="3">Kedua</td>
+                    <td class="td1"></td>
+                    <td class="td1"></td>
+                    <td style="text-align:right;">2.</td>
+                    <td colspan="3">Bila ada perubahan data/keterangan lainnya atau telah mendapat</td>
+                </tr>
+                <tr>
+                   
+                    <td class="td1"></td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td>&nbsp;</td>
+                    <td colspan="3">pekerjaan harap segera melapor.</td>
+                </tr>
+                <tr>
+                  
+                    <td class="td2"></td>
+                    <td class="td2">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td style="text-align:right;"></td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td class="td2" rowspan="3">Ketiga</td>
+                    <td class="td1"></td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td style="text-align:right;">3.</td>
+                    <td  colspan="3">Apabila pencari kerja yang bersangkutan telah diterima bekerja </td>
+                </tr>
+                <tr>
+                    
+                    <td class="td1"> </td>
+                    <td class="td1"></td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td>&nbsp;</td>
+                    <td colspan="3">maka instansi/Perusahaan yang menerima agar mengembalikan AK/I</td>
+                </tr>
+                <tr>
+                   
+                    <td class="td2"></td>
+                    <td class="td2">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td>&nbsp;</td>
+                    <td colspan="3">ini kepada Dinas Tenaga Kerja.</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td>&nbsp;</td>
+                    <td style="width: 80px;">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td class="td1">&nbsp;</td>
+                    <td style="text-align:right;">4.</td>
+                    <td colspan="3">Kartu ini berlaku selama 2 tahun dengan keharusan melapor </td>
+                </tr>
+                <tr>
+                    <td colspan="2">Diterima di</td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td>&nbsp;</td>
+                    <td colspan="3">setiap 6 bulan seklai bagi pencari kerja yang belum mendapat</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td>&nbsp;</td>
+                    <td colspan="3">pekerjaan.</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td class="td1">&nbsp;</td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Terhitung Mulai Tanggal</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td class="td1">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td style="font-size: 10px;">&nbsp;</td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>&nbsp;</td>
+                    <td class="td1" colspan="2">&nbsp;</td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td style="font-size: 10px;">&nbsp;</td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="td1" colspan="2"></td>
+                    <!-- <td class="td1" ></td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td></td>
+                </tr>
+                 <tr>
+                    <td>&nbsp;</td>
+                    <td class="td1" colspan="2"></td>
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <!-- <td class="td1">&nbsp;</td> -->
+                    <td>&nbsp;</td>
+                    <td></td>
+                    <td>&nbsp;</td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>  
+
+  </div>
+  {{/data_hasil}}
+</section>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<div class="{{module_id_class}}">
+    <div class="box box-primary">
+        <div class="box-header">
+            <h3 class="box-title">Daftar Instansi</h3>
+            <div class="box-tools" >
+                <div class="input-group input-group-sm" style="width: 400px;">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-primary" id="add_data" name = "add_data" style="margin-right: 10px">Tambah Instansi</button>
+                    </div>
+                    
+                    <input type="text" name="table_search" class="form-control pull-right search-module" placeholder="Filter">
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box-body no-padding">
+            <div class="table-instansi"></div>
+        </div>
+    </div>
+    <div class="overlay">
+        <i class="fa fa-refresh fa-spin"></i>
+    </div>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Input Data Instansi</h4>
+            </div>
+            <div class="modal-body">
+                <!-- Isi Modal -->
+                <form class="form-horizontal" id="form-search">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="inputEmail3" class="control-label">Nama Instansi</label>
+                            <input type="hidden" class="form-control pull-right id_unit_kerja" id="id_unit_kerja" name="id_unit_kerja">
+                            <input type="text" class="form-control pull-right unit_kerja" id="unit_kerja" name="unit_kerja">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="inputEmail3" class="control-label">Nama Singkatan</label>
+                            <input type="text" class="form-control pull-right nama_unit_kerja_pendek" id="nama_unit_kerja_pendek" name="nama_unit_kerja_pendek">
+                        </div>
+                        <div class="col-md-12">
+                            <label for="inputEmail3" class="control-label">Kepala Instansi</label>
+                            <input type="text" class="form-control pull-right nama_kepala" id="nama_kepala" name="nama_kepala">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inputEmail3" class="control-label">Kode Instansi</label>
+                            <input type="text" class="form-control pull-right kode_unit_kerja" id="kode_unit_kerja" name="kode_unit_kerja">
+                        </div>
+                        
+                        <!-- <div class="col-md-3">
+                            <label for="inputEmail3" class="control-label">Kode Parent</label>
+                            <input type="text" class="form-control pull-right kode_unit_kerja_parent" id="kode_unit_kerja_parent" name="kode_unit_kerja_parent">
+                        </div> -->
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md-7 pull-right">
+                            <div class="col-md-6" style="margin-top:0.5%;">
+                                <a class="btn btn-block btn-success " id="save" name = "save">
+                                    <i class="fa fa-save"></i> Simpan
+                                </a>
+                            </div>
+                            <div class="col-md-6" style="margin-top:0.5%;">
+                                <a class="btn btn-block btn-danger" id="close" name = "close">
+                                    <i class="fa fa-close"></i> Close
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form><br>
+            </div>
+        </div>
+    </div>
+</div>

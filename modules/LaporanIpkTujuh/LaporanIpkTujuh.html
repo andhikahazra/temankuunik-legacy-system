@@ -1,0 +1,148 @@
+<style>
+th {
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+td {
+    padding: 1px
+}
+
+.head {
+    background-color: rgba(143, 175, 68, 1);
+}
+
+.fix {
+    position: fixed;
+}
+
+.bg-grey {
+    background-color: rgba(202, 218, 235, 1);
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 2px !important;
+}
+
+
+.kop {
+    font-size:10pt;
+    font-weight:bold;
+}
+
+.responstable {
+  margin: 1em 0;
+  width: 100%;
+  overflow: hidden;
+  background: #FFF;
+  color: #024457;
+  /*border-radius: 10px;*/
+  border: 1px solid #167F92;
+}
+.responstable tr {
+  border: 1px solid #D9E4E6;
+}
+.responstable tr:nth-child(odd) {
+  background-color: #FFF;
+}
+.responstable th {
+  font-family: 'Arvo', sans-serif;
+  display: none;
+  border: 1px solid #FFF;
+  background-color: #167F92;
+  color: #FFF;
+  padding: .5em;
+  text-transform: uppercase;
+}
+.responstable th:first-child {
+  display: table-cell;
+  text-align: center;
+}
+.responstable th:nth-child(2) {
+  display: table-cell;
+}
+.responstable th:nth-child(2) span {
+  display: none;
+} 
+.responstable th:nth-child(2):after {
+  content: attr(data-th);
+}
+@media (min-width: 480px) {
+  .responstable th:nth-child(2) span {
+    display: block;
+  }
+  .responstable th:nth-child(2):after {
+    display: none;
+  }
+}
+.responstable td {
+  font-family: 'Arvo', Arial, sans-serif;
+  text-align: left;
+  display: block;
+  word-wrap: break-word;
+  max-width: 14em;
+}
+.responstable td:first-child {
+  display: table-cell;
+  text-align: center;
+  border-right: 1px solid #D9E4E6;
+}
+@media (min-width: 480px) {
+  .responstable td {
+    border: 1px solid #D9E4E6;
+  }
+}
+.responstable th, .responstable td {
+  margin: .5em 1em;
+}
+@media (min-width: 480px) {
+  .responstable th, .responstable td {
+    display: table-cell;
+    padding: .35em;
+  }
+}
+</style>
+
+<div class="{{module_id_class}}">
+    <form class="form-horizontal" id="form-search">
+    <!--     <div class="box-header">
+            <h3 class="box-title">Pengawasan Pemeriksaan</h3>
+        </div> -->
+        <div class="row">
+          <!--   <div class="col-md-5">
+                <label for="inputEmail3" class="control-label">Jenis Pengawasan</label>
+                  <select class="cb-periksa form-control cb-periksa" name="cb-periksa" id="cb-periksa">
+
+                </select>
+            </div>
+            <div class="col-md-2" style="margin-top:0.5%;">
+                <label for="inputEmail3" class="control-label"></label>
+                <a class="btn btn-block btn-success" id="btnTampil" name = "btnTampil">
+                    <i class="fa fa-search-plus"></i>Tampilkan
+                </a>
+            </div> -->
+             <div class="col-md-2" style="margin-top:0.5%;">
+                <label for="inputEmail3" class="control-label"></label>
+                <a class="btn btn-block btn-primary" id="btnTampil" name = "btnTampil">
+                Tampilkan Data
+                </a>
+            </div>
+            <div class="col-md-2" style="margin-top:0.5%;">
+                <label for="inputEmail3" class="control-label"></label>
+                <a class="btn btn-block btn-success" id="btnExcel" name = "btnExcel">
+                Export Excel
+                </a>
+            </div>
+        </div>
+
+    </form><br>
+    <div class="box box-primary">
+        
+        <div class="box-body no-padding" style="height: 700px; overflow-y: scroll;">
+            <div class="table table-ipktujuh table-responsive"></div>
+        </div>
+    </div>
+
+</div>
