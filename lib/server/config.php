@@ -4,7 +4,7 @@
 if (!defined('APP_INDEX')) define('APP_INDEX', "main.php");
 
 // Jika Aplikasi dijalankan di localhost, gunakan config.localhost.php
-$locals = array($_SERVER['HTTP_HOST'], $_SERVER['SERVER_NAME'], $_SERVER['SERVER_ADDR'], $_SERVER['REMOTE_ADDR']);
+$locals = array($_SERVER['HTTP_HOST'] ?? '', $_SERVER['SERVER_NAME'] ?? '', $_SERVER['SERVER_ADDR'] ?? '', $_SERVER['REMOTE_ADDR'] ?? '');
 // localhost string : localhost, 127.0.0.1, ::1
 if (in_array('localhost', $locals) || in_array('127.0.0.1', $locals) || in_array('::1', $locals)) {
 	require_once('config.localhost.php');
